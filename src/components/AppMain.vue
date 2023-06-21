@@ -11,10 +11,13 @@
             </button>
         </div>
 
-        <ul>
-            <MovieComponent />
-        </ul>
-        
+            <MovieComponent v-for="movie in movieList"
+              :title="movie.title"
+              :originalTitle="movie.original_title"
+              :language="movie.original_language"
+              :rating="movie.vote_average"
+            />
+
     </main>
 </template>
 
@@ -31,7 +34,8 @@ export default {
     data() {
         return {
             store,
-            searchQuery: ''
+            searchQuery: '',
+            movieList: []
         }
     },
     methods: {
@@ -42,14 +46,15 @@ export default {
                     query: this.searchQuery,
                 }
             })
-            .then(function (response) {
-              console.log(response.data);
+            .then( (response) => {
+                console.log(response.data.results);
+                this.movieList = response.data.results
             })
             .catch(function (error) {
-              console.log(error);
+                console.log(error);
             })
             .finally(function () {
-              // always executed
+                // always executed
             });  
         }
     },
