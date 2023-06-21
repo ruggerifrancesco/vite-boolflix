@@ -11,13 +11,22 @@
             </button>
         </div>
 
-            <MovieComponent v-for="movie in movieList"
-              :title="movie.title"
-              :originalTitle="movie.original_title"
-              :language="movie.original_language"
-              :rating="movie.vote_average"
-            />
+        <h1>Movies</h1>
+        <MovieComponent v-for="movie in movieList"
+          :title="movie.title"
+          :originalTitle="movie.original_title"
+          :language="movie.original_language"
+          :rating="movie.vote_average"
+        />
 
+        <h1>Tv Series</h1>
+        <TvComponent v-for="serie in tvSeriesList"
+            :name="serie.name"
+            :originalName="serie.original_name"
+            :language="serie.original_language"
+            :rating="serie.vote_average"
+        />
+            
     </main>
 </template>
 
