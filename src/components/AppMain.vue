@@ -24,39 +24,46 @@
 <script>
 import { store } from '../store.js';
 import axios from "axios";
-import MovieComponent from './MovieComponent.vue';
+import MovieComponent from './single-components/MovieComponent.vue';
+import TvComponent from './single-components/TvComponent.vue';
 
 export default {
     name: 'AppMain',
     components: {
-        MovieComponent
+        MovieComponent,
+        TvComponent
     },
     data() {
         return {
             store,
             searchQuery: '',
-            movieList: []
+            movieList: [],
+            tvSeriesList: [],
         }
     },
     methods: {
-        callServiceApi () {
-            axios.get(store.apiLinkCall, {
-                params: {
-                    api_key: store.apiKey,
-                    query: this.searchQuery,
-                }
-            })
-            .then( (response) => {
-                console.log(response.data.results);
-                this.movieList = response.data.results
-            })
-            .catch(function (error) {
-                console.log(error);
-            })
-            .finally(function () {
-                // always executed
-            });  
-        }
+        callServiceApi() {
+            const movieApiUrl = `${store.movieApiLinkCall}?api_key=${store.apiKey}&query=${this.searchQuery}`;
+            const tvSeriesApiUrl = `${store.tvSeriesApiLinkCall}?api_key=${store.apiKey}&query=${this.searchQuery}`;
+
+            const movieApiCall = axios.get(movieApiUrl);
+            const tvSeriesApiCall = axios.get(tvSeriesApiUrl);
+
+            axios
+                .all([movieApiCall, tvSeriesApiCall])
+                .then(
+                  axios.spread((movieResponse, tvSeriesResponse) => {
+                    this.movieList = movieResponse.data.results;
+                    this.tvSeriesList = tvSeriesResponse.data.results;
+                  })
+                )
+                .catch(function (error) {
+                  console.log(error);
+                })
+                .finally(function () {
+                  // always executed
+                });
+        },
     },
     created() {
         // Perform the initial API call

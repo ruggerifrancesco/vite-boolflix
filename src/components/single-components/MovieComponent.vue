@@ -12,7 +12,7 @@
             <li>
                 <strong>Language: </strong>
                 {{ language }}
-                <!-- <FlagIcon :code="language" /> -->
+                <!-- <flag :iso="language" /> -->
             </li>
             <li>
                 <strong>Rating: </strong>
@@ -39,6 +39,6 @@ export default {
 }
 </script>\
 
-<style lang="scss">
+<style lang="scss" scoped>
     
 </style>
