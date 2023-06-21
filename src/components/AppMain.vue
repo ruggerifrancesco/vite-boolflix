@@ -1,6 +1,9 @@
 <template>
     <main>
-        
+        <div class="d-flex">
+            <input class="form-control me-2 w-50" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </div>
     </main>
 </template>
 
