@@ -1,7 +1,5 @@
 <template>
-    <div>
-        <img :src="getFlagImage(languageCode)" :alt="languageCode" />
-    </div>
+    <img :src="getFlagImage(languageCode)" :alt="languageCode" />
 </template>
 
 <script>
@@ -13,21 +11,18 @@ export default {
     data() {
         return {
             languages: [
-                { code: 'it', name: 'Italian', flag: '' },
-                { code: 'af', name: 'Afrikaans', flag: '/path/to/afrikaans-flag.png' },
-                { code: 'ar', name: 'Arabic', flag: '/path/to/arabic-flag.png' },
-                { code: 'bg', name: 'Bulgarian', flag: '/path/to/bulgarian-flag.png' },
-                { code: 'ca', name: 'Catalan', flag: '/path/to/catalan-flag.png' },
-                { code: 'zh', name: 'Chinese', flag: '/path/to/chinese-flag.png' },
-                { code: 'en', name: 'English', flag: '/path/to/english-flag.png' },
-                { code: 'es', name: 'Spanish', flag: '/path/to/spanish-flag.png' },
-                { code: 'zh', name: 'Chinese', flag: '/path/to/chinese-flag.png' },
-                { code: 'hi', name: 'Hindi', flag: '/path/to/hindi-flag.png' },
-                { code: 'bn', name: 'Bengali', flag: '/path/to/bengali-flag.png' },
-                { code: 'pt', name: 'Portuguese', flag: '/path/to/portuguese-flag.png' },
-                { code: 'ru', name: 'Russian', flag: '/path/to/russian-flag.png' },
-                { code: 'ja', name: 'Japanese', flag: '/path/to/japanese-flag.png' },
-                { code: 'de', name: 'German', flag: '/path/to/german-flag.png' }
+                { code: 'it', name: 'Italian', flag: 'https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Flag_of_Italy.svg/800px-Flag_of_Italy.svg.png' },
+                { code: 'af', name: 'Afrikaans', flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Flag_of_the_Republic_of_South_Africa.svg/2560px-Flag_of_the_Republic_of_South_Africa.svg.png' },
+                { code: 'ar', name: 'Arabic', flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Arabic-Language-Flag.svg/2560px-Arabic-Language-Flag.svg.png' },
+                { code: 'bg', name: 'Bulgarian', flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Bulgaria.svg/1200px-Flag_of_Bulgaria.svg.png' },
+                { code: 'ca', name: 'Catalan', flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Catalonia.svg/1024px-Flag_of_Catalonia.svg.png' },
+                { code: 'zh', name: 'Chinese', flag: 'https://cdn.britannica.com/90/7490-004-BAD4AA72/Flag-China.jpg' },
+                { code: 'en', name: 'English', flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg/1200px-Flag_of_the_United_Kingdom_%281-2%29.svg.png' },
+                { code: 'es', name: 'Spanish', flag: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Bandera_de_Espa%C3%B1a.svg' },
+                { code: 'pt', name: 'Portuguese', flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/255px-Flag_of_Portugal.svg.png' },
+                { code: 'ru', name: 'Russian', flag: 'https://upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/800px-Flag_of_Russia.svg.png' },
+                { code: 'ja', name: 'Japanese', flag: 'https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/800px-Flag_of_Japan.svg.png' },
+                { code: 'de', name: 'German', flag: 'https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png' }
             ]
         }
     },
@@ -41,5 +36,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    
+    img {
+        width: 3rem;
+        border: 1px solid black;
+    }
 </style>
