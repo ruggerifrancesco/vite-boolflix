@@ -12,7 +12,6 @@
             <li>
                 <strong>Language: </strong>
                 {{ language }}
-                <!-- <flag :iso="language" /> -->
             </li>
             <li>
                 <strong>Rating: </strong>
@@ -23,8 +22,13 @@
 </template>
 
 <script>
+import AppLanguages from './AppLanguages.vue';
+
 export default {
     name: 'TvComponent',
+    components: {
+        AppLanguages
+    },
     props: {
         name: String,
         originalName: String,
