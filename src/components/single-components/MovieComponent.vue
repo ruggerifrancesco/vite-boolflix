@@ -11,7 +11,7 @@
             </li>
             <li>
                 <strong>Language: </strong>
-                {{ language }}
+                <AppLanguages :languageCode="language" />
             </li>
             <li>
                 <strong>Rating: </strong>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <img v-for="language in languages" :key="language.code" :src="getFlagImage(language.code)" :alt="language.name" />
+        <img src="getFlagImage(language.code)" alt="language.name" />
     </div>
 </template>
 
@@ -28,12 +28,7 @@ export default {
             ]
         }
     },
-    methods: {
-        getFlagImage(languageCode) {
-          const language = this.languages.find(lang => lang.code === languageCode);
-          return language ? language.flag : '';
-        }
-    }
+    methods: {}
 }
 </script>
 
