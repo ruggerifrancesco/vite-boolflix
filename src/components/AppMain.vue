@@ -5,6 +5,9 @@
 </template>
 
 <script>
+import { axios } from "axios";
+import { store } from '../store.js';
+
 export default {
     name: 'AppMain',
     components: {
@@ -16,10 +19,10 @@ export default {
         }
     },
     methods: {
-        callServieApi () {
-            axios.get('/user', {
+        callServiceApi () {
+            axios.get(store.apiLinkCall, {
                 params: {
-                  ID: 12345
+                    api_key: store.apiKey
                 }
             })
             .then(function (response) {
@@ -32,6 +35,9 @@ export default {
               // always executed
             });  
         }
+    },
+    created() {
+        callServiceApi ()
     },
 }
 </script>
