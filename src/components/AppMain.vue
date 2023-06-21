@@ -10,17 +10,23 @@
                 Search
             </button>
         </div>
+
+        <ul>
+            <MovieComponent />
+        </ul>
+        
     </main>
 </template>
 
 <script>
 import { store } from '../store.js';
 import axios from "axios";
+import MovieComponent from './MovieComponent.vue';
 
 export default {
     name: 'AppMain',
     components: {
-
+        MovieComponent
     },
     data() {
         return {
