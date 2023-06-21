@@ -11,7 +11,7 @@
             </li>
             <li>
                 <strong>Language: </strong>
-                {{ language }}
+                <FlagIcon :code="language" />
             </li>
             <li>
                 <strong>Rating: </strong>
@@ -22,8 +22,13 @@
 </template>
 
 <script>
+import FlagIcon from 'vue-flag-icon';
+    
 export default {
     name: 'MovieComponent',
+    components: {
+        FlagIcon
+    },
     props: {
         title: String,
         originalTitle: String,
