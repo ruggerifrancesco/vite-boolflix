@@ -5,13 +5,13 @@
 
 <script>
 import AppHeader from './components/AppHeader.vue';
-import AppMainVue from './components/AppMain.vue';
+import AppMain from './components/AppMain.vue';
 
 export default {
   name: 'App',
   components: {
     AppHeader,
-    AppMainVue
+    AppMain
   }
 }
 </script>

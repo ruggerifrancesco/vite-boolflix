@@ -15,14 +15,15 @@ export default {
     },
     data() {
         return {
-            
+            store,
         }
     },
     methods: {
         callServiceApi () {
             axios.get(store.apiLinkCall, {
                 params: {
-                    api_key: store.apiKey
+                    api_key: store.apiKey,
+                    query: ''
                 }
             })
             .then(function (response) {
