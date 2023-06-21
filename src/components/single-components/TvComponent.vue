@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import AppLanguages from './AppLanguages.vue';
+import AppLanguages from '../AppLanguages.vue';
 
 export default {
     name: 'TvComponent',
