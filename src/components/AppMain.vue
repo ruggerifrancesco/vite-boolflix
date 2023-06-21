@@ -1,8 +1,14 @@
 <template>
     <main>
         <div class="d-flex">
-            <input class="form-control me-2 w-50" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+            <input class="form-control me-2 w-50" 
+                type="search" v-model="searchQuery" 
+                placeholder="Search" aria-label="Search">
+
+            <button class="btn btn-outline-success" type="submit" 
+                @click="callServiceApi">
+                Search
+            </button>
         </div>
     </main>
 </template>
@@ -19,6 +25,7 @@ export default {
     data() {
         return {
             store,
+            searchQuery: ''
         }
     },
     methods: {
@@ -26,11 +33,11 @@ export default {
             axios.get(store.apiLinkCall, {
                 params: {
                     api_key: store.apiKey,
-                    query: ''
+                    query: this.searchQuery,
                 }
             })
             .then(function (response) {
-              console.log(response);
+              console.log(response.data);
             })
             .catch(function (error) {
               console.log(error);
@@ -41,7 +48,8 @@ export default {
         }
     },
     created() {
-        this.callServiceApi ()
+        // Perform the initial API call
+        // this.callServiceApi ()
     },
 }
 </script>
