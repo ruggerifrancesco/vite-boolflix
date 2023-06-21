@@ -1,12 +1,15 @@
 <template>
     <div>
-        <img src="getFlagImage(language.code)" alt="language.name" />
+        <img :src="getFlagImage(languageCode)" :alt="languageCode" />
     </div>
 </template>
 
 <script>
 export default {
     name: 'AppLanguages',
+    props: {
+        languageCode: String,
+    },
     data() {
         return {
             languages: [
@@ -28,7 +31,12 @@ export default {
             ]
         }
     },
-    methods: {}
+    methods: {
+        getFlagImage(languageCode) {
+            const language = this.languages.find((lang) => lang.code === languageCode);
+            return language ? language.flag : '';
+        },
+    }
 }
 </script>
 
