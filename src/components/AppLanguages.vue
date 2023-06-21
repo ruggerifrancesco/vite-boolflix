@@ -22,7 +22,8 @@ export default {
                 { code: 'pt', name: 'Portuguese', flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/255px-Flag_of_Portugal.svg.png' },
                 { code: 'ru', name: 'Russian', flag: 'https://upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/800px-Flag_of_Russia.svg.png' },
                 { code: 'ja', name: 'Japanese', flag: 'https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/800px-Flag_of_Japan.svg.png' },
-                { code: 'de', name: 'German', flag: 'https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png' }
+                { code: 'de', name: 'German', flag: 'https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png' },
+                { code: 'fr', name: 'French', flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Flag_of_France_%282020%E2%80%93present%29.svg/250px-Flag_of_France_%282020%E2%80%93present%29.svg.png'}
             ]
         }
     },
