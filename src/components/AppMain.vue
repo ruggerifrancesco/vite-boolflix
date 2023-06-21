@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import { axios } from "axios";
 import { store } from '../store.js';
+import axios from "axios";
 
 export default {
     name: 'AppMain',
@@ -37,7 +37,7 @@ export default {
         }
     },
     created() {
-        callServiceApi ()
+        this.callServiceApi ()
     },
 }
 </script>
