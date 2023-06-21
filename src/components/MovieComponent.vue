@@ -11,7 +11,8 @@
             </li>
             <li>
                 <strong>Language: </strong>
-                <FlagIcon :code="language" />
+                {{ language }}
+                <!-- <FlagIcon :code="language" /> -->
             </li>
             <li>
                 <strong>Rating: </strong>
