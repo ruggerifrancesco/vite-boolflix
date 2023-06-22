@@ -1,6 +1,6 @@
 <template>
     <div>
-        <i class="fa-solid fa-star"></i>
+        <font-awesome-icon icon="fa-solid fa-star" />
     </div>
 </template>
 
