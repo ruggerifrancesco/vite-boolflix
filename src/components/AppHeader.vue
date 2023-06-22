@@ -1,5 +1,6 @@
 <template>
     <header>
+        <img src="../assets/boolflix-logo.png" alt="BoolFlix Logo">
         <div class="d-flex">
             <input class="form-control me-2 w-50" type="search" v-model="searchQuery" 
                 placeholder="Search" aria-label="Search">
