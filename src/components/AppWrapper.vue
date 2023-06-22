@@ -34,7 +34,6 @@ export default {
                 .all([movieApiCall, tvSeriesApiCall])
                 .then(
                   axios.spread((movieResponse, tvSeriesResponse) => {
-                    console.warn(movieResponse);
                     this.movieList = movieResponse.data.results;
                     this.tvSeriesList = tvSeriesResponse.data.results;
                   })
@@ -44,7 +43,9 @@ export default {
                 })
         },
     },
-    created() {},
+    created() {
+      this.callServiceApi()
+    },
 }
 </script>  
 
