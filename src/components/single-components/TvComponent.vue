@@ -17,6 +17,9 @@
                 <strong>Rating: </strong>
                 {{ rating }}
             </li>
+            <li>
+                <img :src="posterSrc" alt="">
+            </li>
         </ul>
     </article>
 </template>
@@ -34,6 +37,7 @@ export default {
         originalName: String,
         language: String,
         rating: Number,
+        posterSrc: String,
     },
     data() {
         return {

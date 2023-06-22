@@ -7,6 +7,7 @@
             :originalTitle="movie.original_title"
             :language="movie.original_language"
             :rating="movie.vote_average"
+            :posterSrc="buildImageUrl(movie.poster_path)"
         />
 
         <h1>Tv Series</h1>
@@ -15,6 +16,7 @@
             :originalName="serie.original_name"
             :language="serie.original_language"
             :rating="serie.vote_average"
+            :posterSrc="buildImageUrl(serie.poster_path)"
         />
             
     </main>
@@ -35,9 +37,19 @@ export default {
         tvArray: Array,
     },
     data() {
-        return {}
+        return {
+            imgApiLink: 'https://image.tmdb.org/t/p/',
+            imgSize: 'original'
+        }
     },
-    methods: {},
+    methods: {
+        buildImageUrl(posterPath) {
+            if (posterPath) {
+              return this.imgApiLink + this.imgSize + posterPath;
+            }
+            return 'path_to_default_image';
+        }
+    },
 }
 </script>
 

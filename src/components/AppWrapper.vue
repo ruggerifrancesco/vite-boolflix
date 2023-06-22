@@ -44,10 +44,7 @@ export default {
                 })
         },
     },
-    created() {
-        // Perform the initial API call
-        // this.callServiceApi ('')
-    },
+    created() {},
 }
 </script>  
 
