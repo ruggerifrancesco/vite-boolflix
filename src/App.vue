@@ -1,14 +1,14 @@
 <template>
-  <AppWrapper />
+  <router-view></router-view>
 </template>
 
 <script>
-import AppWrapper from './components/AppWrapper.vue';
+import AppLogin from './components/AppLogin.vue';
 
 export default {
   name: 'App',
   components: {
-    AppWrapper
+    AppLogin,
   }
 }
 </script>

@@ -1,6 +1,7 @@
 /* Set up using Vue 3 */
 import { createApp } from 'vue'
 import App from './App.vue'
+import router from './router.js';
 
 // Font Awesome Core
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -16,5 +17,6 @@ import { faStar as farStar } from '@fortawesome/free-regular-svg-icons'
 library.add(faStar, farStar)
 
 createApp(App)
+    .use(router)
     .component('font-awesome-icon', FontAwesomeIcon)
     .mount('#app')
