@@ -15,7 +15,7 @@
             </li>
             <li>
                 <strong>Rating: </strong>
-                <RatingComponent />
+                <RatingComponent :rating="rating"/>
             </li>
             <li>
                 <img :src="posterSrc" alt="">
