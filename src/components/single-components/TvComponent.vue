@@ -15,7 +15,7 @@
             </li>
             <li>
                 <strong>Rating: </strong>
-                {{ rating }}
+                <RatingComponent />
             </li>
             <li>
                 <img :src="posterSrc" alt="">
@@ -26,11 +26,13 @@
 
 <script>
 import AppLanguages from '../AppLanguages.vue';
+import RatingComponent from './RatingComponent.vue';
 
 export default {
     name: 'TvComponent',
     components: {
-        AppLanguages
+        AppLanguages,
+        RatingComponent
     },
     props: {
         name: String,

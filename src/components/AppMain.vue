@@ -39,7 +39,7 @@ export default {
     data() {
         return {
             imgApiLink: 'https://image.tmdb.org/t/p/',
-            imgSize: 'original'
+            imgSize: 'w780'
         }
     },
     methods: {
