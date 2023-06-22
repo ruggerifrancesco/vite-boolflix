@@ -1,26 +1,16 @@
 <template>
     <main>
-        <div class="d-flex">
-            <input class="form-control me-2 w-50" 
-                type="search" v-model="searchQuery" 
-                placeholder="Search" aria-label="Search">
-
-            <button class="btn btn-outline-success" type="submit" 
-                @click="callServiceApi">
-                Search
-            </button>
-        </div>
 
         <h1>Movies</h1>
-        <MovieComponent v-for="movie in movieList"
-          :title="movie.title"
-          :originalTitle="movie.original_title"
-          :language="movie.original_language"
-          :rating="movie.vote_average"
+        <MovieComponent v-for="movie in movieArray"
+            :title="movie.title"
+            :originalTitle="movie.original_title"
+            :language="movie.original_language"
+            :rating="movie.vote_average"
         />
 
         <h1>Tv Series</h1>
-        <TvComponent v-for="serie in tvSeriesList"
+        <TvComponent v-for="serie in tvArray"
             :name="serie.name"
             :originalName="serie.original_name"
             :language="serie.original_language"
@@ -31,8 +21,6 @@
 </template>
 
 <script>
-import { store } from '../store.js';
-import axios from "axios";
 import MovieComponent from './single-components/MovieComponent.vue';
 import TvComponent from './single-components/TvComponent.vue';
 
@@ -42,42 +30,14 @@ export default {
         MovieComponent,
         TvComponent
     },
+    props: {
+        movieArray: Array,
+        tvArray: Array,
+    },
     data() {
-        return {
-            store,
-            searchQuery: '',
-            movieList: [],
-            tvSeriesList: [],
-        }
+        return {}
     },
-    methods: {
-        callServiceApi() {
-            const movieApiUrl = `${store.movieApiLinkCall}?api_key=${store.apiKey}&query=${this.searchQuery}`;
-            const tvSeriesApiUrl = `${store.tvSeriesApiLinkCall}?api_key=${store.apiKey}&query=${this.searchQuery}`;
-
-            const movieApiCall = axios.get(movieApiUrl);
-            const tvSeriesApiCall = axios.get(tvSeriesApiUrl);
-
-            axios
-                .all([movieApiCall, tvSeriesApiCall])
-                .then(
-                  axios.spread((movieResponse, tvSeriesResponse) => {
-                    this.movieList = movieResponse.data.results;
-                    this.tvSeriesList = tvSeriesResponse.data.results;
-                  })
-                )
-                .catch(function (error) {
-                  console.log(error);
-                })
-                .finally(function () {
-                  // always executed
-                });
-        },
-    },
-    created() {
-        // Perform the initial API call
-        // this.callServiceApi ()
-    },
+    methods: {},
 }
 </script>
 
