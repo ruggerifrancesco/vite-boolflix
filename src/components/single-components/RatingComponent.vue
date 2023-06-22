@@ -1,6 +1,8 @@
 <template>
     <div>
         <font-awesome-icon v-for="i in 5" :key="i" :icon="getStarIcon(i)" />
+        <!-- TO DO Stroke star -->
+        <!-- <font-awesome-icon :icon="['far', 'star-half-stroke']" /> -->
     </div>
 </template>
 
