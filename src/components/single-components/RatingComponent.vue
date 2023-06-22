@@ -13,7 +13,7 @@ export default {
     methods: {
         getStarIcon(index) {
             const fullStars = Math.floor(this.rating / 2);
-            return index <= fullStars ? 'star' : 'farStar';
+            return index <= fullStars ? 'star' : ['far', 'star'];
         }
     }
 }
