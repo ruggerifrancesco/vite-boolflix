@@ -43,8 +43,9 @@ export default {
                 })
         },
     },
+    // DA CHIEDERE A RICCARDO
     created() {
-      this.callServiceApi()
+      // this.callServiceApi()
     },
 }
 </script>  
