@@ -67,7 +67,6 @@ export default {
         return {
             searchQuery: '',
             isScrollTop: true,
-            searchButtonClicked: false,
         };
     },
     methods: {
