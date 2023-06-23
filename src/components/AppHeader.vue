@@ -1,6 +1,6 @@
 <template>
     <header>
-        <nav class="navbar navbar-expand-lg bg-light p-3">
+        <nav class="navbar navbar-expand-lg p-3">
           <div class="container-fluid">
             <div class="logo-brand">
                 <img src="../assets/boolflix-logo.png" alt="BoolFlix Logo">
@@ -10,7 +10,7 @@
               <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse list-items-container" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li class="nav-item">
@@ -61,6 +61,13 @@ export default {
 
 
 <style lang="scss" scoped>
+@use '../styles/partials/_mixins.scss' as *;
+@use '../styles/partials/_variables.scss' as *;
+
+    nav {
+        background-color: transparent;
+    }
+
     img {
       display: block;
       width: 100%;
@@ -69,5 +76,23 @@ export default {
 
     .logo-brand {
         width: 8rem;
+    }
+
+    .nav-link {
+        color: white;
+        font-size: 0.95rem;
+        &.active {
+            color: white; 
+            font-weight: bold;
+        }
+
+        &:hover {
+            color: rgb(199, 199, 199); 
+        }
+    }
+
+    // TO RECHECK LATER
+    .list-items-container {
+        margin-left: 1rem;
     }
 </style>

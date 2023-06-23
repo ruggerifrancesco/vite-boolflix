@@ -57,10 +57,6 @@ export default {
 @use '../styles/partials/_mixins.scss' as *;
 @use '../styles/partials/_variables.scss' as *;
 
-    * {
-      // outline: 1px solid red;
-    }
-
     body {
       font-family: "Roboto";
     }

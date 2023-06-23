@@ -43,13 +43,16 @@ export default {
                 })
         },
     },
-    // DA CHIEDERE A RICCARDO
-    created() {
-      // this.callServiceApi()
-    },
 }
 </script>  
 
-<style lang="scss" scoped>
-    
+<style lang="scss">
+// General Code to the app after login
+@use '../styles/partials/_mixins.scss' as *;
+@use '../styles/partials/_variables.scss' as *;
+
+    body {
+      background-color: $main-app-bg;
+    }
+
 </style>
