@@ -1,9 +1,7 @@
 <template>
     <AppHeader @search="callServiceApi"/>
     <AppMain v-if="!searchQuery" :movieArray="movieList" :tvArray="tvSeriesList"/>
-    <div v-else>
-      <!-- Display search results -->
-    </div>
+    <AppSearch v-else :movieArray="movieList" :tvArray="tvSeriesList"/>
   </template>
   
 <script>
@@ -11,12 +9,14 @@ import { store } from '../store.js';
 import axios from "axios";
 import AppHeader from './AppHeader.vue';
 import AppMain from './AppMain.vue';
+import AppSearch from './AppSearch.vue';
 
 export default {
     name: 'AppWrapper',
     components: {
         AppHeader,
-        AppMain
+        AppMain,
+        AppSearch
     },
     data() {
         return {
