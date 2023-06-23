@@ -1,5 +1,8 @@
 <template>
-    <article>
+    <article class="poster-card">
+        <div class="poster-img">
+            <img :src="posterSrc" alt="">
+        </div>
         <ul>
             <li>
                 <strong>Title: </strong>
@@ -16,9 +19,6 @@
             <li>
                 <strong>Rating: </strong>
                 <RatingComponent :rating="rating"/>
-            </li>
-            <li>
-                <img :src="posterSrc" alt="">
             </li>
         </ul>
     </article>
@@ -45,5 +45,12 @@ export default {
 </script>\
 
 <style lang="scss" scoped>
-    
+@use '../../styles/partials/_mixins.scss' as *;
+@use '../../styles/partials/_variables.scss' as *;
+
+    .poster-card {
+        width: calc((100% / 5) - 2rem);
+        margin-left: 2rem;
+    }
+
 </style>

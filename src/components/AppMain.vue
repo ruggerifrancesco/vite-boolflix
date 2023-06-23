@@ -1,23 +1,5 @@
 <template>
     <main>
-
-        <h1>Movies</h1>
-        <MovieComponent v-for="movie in movieArray"
-            :title="movie.title"
-            :originalTitle="movie.original_title"
-            :language="movie.original_language"
-            :rating="movie.vote_average"
-            :posterSrc="buildImageUrl(movie.poster_path)"
-        />
-
-        <h1>Tv Series</h1>
-        <TvComponent v-for="serie in tvArray"
-            :name="serie.name"
-            :originalName="serie.original_name"
-            :language="serie.original_language"
-            :rating="serie.vote_average"
-            :posterSrc="buildImageUrl(serie.poster_path)"
-        />
             
     </main>
 </template>
@@ -39,7 +21,7 @@ export default {
     data() {
         return {
             imgApiLink: 'https://image.tmdb.org/t/p/',
-            imgSize: 'w780'
+            imgSize: 'w342'
         }
     },
     methods: {
