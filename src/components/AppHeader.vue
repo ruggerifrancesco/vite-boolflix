@@ -38,11 +38,15 @@
 
                     <div class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" 
-                            v-model="searchQuery" @input="handleSearch">
+                            v-model="searchQuery">
 
                         <button class="btn btn-success" type="submit" 
-                            @click="$emit('search', searchQuery)">
+                            @click="handleSearch">
                             Search
+                        </button>
+
+                        <button class="btn btn-danger" type="button" @click="handleClear">
+                          Clear
                         </button>
                     </div>
 
@@ -50,7 +54,7 @@
             </div>
         </nav>
 
-        <section class="hero" v-if="!searchQuery">
+        <section class="hero" v-if="showHero">
             <img src="https://images.freecreatives.com/wp-content/uploads/2015/09/avengers-wallpapers-.jpg" alt="">
             <div class="overlay-hero-shadow"></div>
 
@@ -67,6 +71,8 @@ export default {
         return {
             searchQuery: '',
             isScrollTop: true,
+            showHero: true,
+            hasResults: false,
         };
     },
     methods: {
@@ -74,7 +80,19 @@ export default {
             this.isScrollTop = window.scrollY === 0; // Check if scroll position is at the top
         },
         handleSearch() {
-            this.$emit('search', this.searchQuery); // Emit search event with the search query
+            if (this.searchQuery.trim()) {
+              this.hasResults = true; // Set hasResults to true when search is performed
+              this.showHero = false; // Hide the hero section when search is performed
+              this.$emit('search', this.searchQuery);
+            } else {
+              this.handleClear();
+            }
+        },
+        handleClear() {
+            this.searchQuery = '';
+            this.showHero = true; // Show the hero section when search is cleared
+            this.hasResults = false; // Reset hasResults to false when cleared
+            this.$emit('clear');
         },
     },
     mounted() {

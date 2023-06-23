@@ -54,7 +54,7 @@ export default {
             if (posterPath) {
               return this.imgApiLink + this.imgSize + posterPath;
             }
-            return 'path_to_default_image';
+            return 'https://thesame.tv/assets/img/film-poster-placeholder.png';
         }
     },
 }

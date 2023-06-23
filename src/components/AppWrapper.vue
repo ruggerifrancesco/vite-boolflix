@@ -1,7 +1,7 @@
 <template>
-    <AppHeader @search="callServiceApi"/>
-    <AppMain v-if="!searchQuery" :movieArray="movieList" :tvArray="tvSeriesList"/>
-    <AppSearch v-else :movieArray="movieList" :tvArray="tvSeriesList"/>
+    <AppHeader @search="callServiceApi" @clear="clearSearch" />
+    <AppMain v-if="!showSearch" :movieArray="movieList" :tvArray="tvSeriesList"/>
+    <AppSearch v-if="showSearch" :movieArray="movieList" :tvArray="tvSeriesList"/>
   </template>
   
 <script>
@@ -24,11 +24,13 @@ export default {
             tvSeriesList: [],
             searchQuery: '',
             store,
+            showSearch: false,
         }
     },  
     methods: {
       callServiceApi(searchInput) {
       this.searchQuery = searchInput; // Update the search query
+      this.showSearch = true;
 
       if (searchInput) {
         const movieApiUrl = `${store.movieApiLinkCall}?api_key=${store.apiKey}&query=${searchInput}`;
@@ -48,9 +50,14 @@ export default {
           });
       } else {
         // Clear the search results when the search query is empty
-        this.movieList = [];
-        this.tvSeriesList = [];
+        this.clearSearch();
       }
+    },
+    clearSearch() {
+      this.showSearch = false; // Set showSearch to false to display AppMain component
+      this.movieList = [];
+      this.tvSeriesList = [];
+      this.searchQuery = '';
     },
   },
 }
