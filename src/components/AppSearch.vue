@@ -73,6 +73,7 @@ export default {
     .container-tv-wrapper {
         @include flex (row, flex-start, flex-start);
         flex-wrap: wrap;
+        padding-right: 2rem;
     }
 
 </style>
