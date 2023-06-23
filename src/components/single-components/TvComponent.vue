@@ -62,6 +62,8 @@ export default {
         margin-left: 2rem;
         position: relative;
         margin-bottom: 2rem;
+        border-radius: 1rem;
+        overflow: hidden;
 
         .poster-img {
             width: 100%;
