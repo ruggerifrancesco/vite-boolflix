@@ -1,9 +1,9 @@
 <template>
   <main>
-    <div class="overlay-shadow">
+    <div class="overlay-shadow px-2 px-sm-0">
 
         <div class="container">
-            <div class="row justify-content-center justify-content-lg-end">
+            <div class="row justify-content-center">
 
                 <div class="col col-sm-10 col-md-8 col-lg-6 col-xl-5 login-container">
                   <div class="logo-container">
@@ -22,6 +22,7 @@
 
 <script>
 export default {
+  name: 'AppLogin',
   methods: {
     redirectToAppWrapper() {
       this.$router.push({ name: 'AppWrapper' });
