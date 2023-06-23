@@ -37,9 +37,15 @@
                     </ul>
 
                     <div class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" v-model="searchQuery">
-                        <button class="btn btn-success" type="submit" @click="$emit('search', searchQuery)">Search</button>
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" 
+                            v-model="searchQuery" @input="handleSearch">
+
+                        <button class="btn btn-success" type="submit" 
+                            @click="$emit('search', searchQuery)">
+                            Search
+                        </button>
                     </div>
+                    
                 </div>
             </div>
         </nav>
@@ -65,7 +71,10 @@ export default {
     },
     methods: {
         handleScroll() {
-          this.isScrollTop = window.scrollY === 0; // Check if scroll position is at the top
+            this.isScrollTop = window.scrollY === 0; // Check if scroll position is at the top
+        },
+        handleSearch() {
+            this.$emit('search', this.searchQuery); // Emit search event with the search query
         },
     },
     mounted() {

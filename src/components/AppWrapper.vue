@@ -1,6 +1,9 @@
 <template>
     <AppHeader @search="callServiceApi"/>
-    <AppMain :movieArray="movieList" :tvArray="tvSeriesList"/>
+    <AppMain v-if="!searchQuery" :movieArray="movieList" :tvArray="tvSeriesList"/>
+    <div v-else>
+      <!-- Display search results -->
+    </div>
   </template>
   
 <script>
@@ -19,30 +22,37 @@ export default {
         return {
             movieList: [],
             tvSeriesList: [],
+            searchQuery: '',
             store,
         }
     },  
     methods: {
-        callServiceApi(searchInput) {
-            const movieApiUrl = `${store.movieApiLinkCall}?api_key=${store.apiKey}&query=${searchInput}`;
-            const tvSeriesApiUrl = `${store.tvSeriesApiLinkCall}?api_key=${store.apiKey}&query=${searchInput}`;
+      callServiceApi(searchInput) {
+      this.searchQuery = searchInput; // Update the search query
 
-            const movieApiCall = axios.get(movieApiUrl);
-            const tvSeriesApiCall = axios.get(tvSeriesApiUrl);
+      if (searchInput) {
+        const movieApiUrl = `${store.movieApiLinkCall}?api_key=${store.apiKey}&query=${searchInput}`;
+        const tvSeriesApiUrl = `${store.tvSeriesApiLinkCall}?api_key=${store.apiKey}&query=${searchInput}`;
 
-            axios
-                .all([movieApiCall, tvSeriesApiCall])
-                .then(
-                  axios.spread((movieResponse, tvSeriesResponse) => {
-                    this.movieList = movieResponse.data.results;
-                    this.tvSeriesList = tvSeriesResponse.data.results;
-                  })
-                )
-                .catch(function (error) {
-                  console.log(error);
-                })
-        },
+        const movieApiCall = axios.get(movieApiUrl);
+        const tvSeriesApiCall = axios.get(tvSeriesApiUrl);
+
+        axios
+          .all([movieApiCall, tvSeriesApiCall])
+          .then(axios.spread((movieResponse, tvSeriesResponse) => {
+            this.movieList = movieResponse.data.results;
+            this.tvSeriesList = tvSeriesResponse.data.results;
+          }))
+          .catch(function (error) {
+            console.log(error);
+          });
+      } else {
+        // Clear the search results when the search query is empty
+        this.movieList = [];
+        this.tvSeriesList = [];
+      }
     },
+  },
 }
 </script>  
 
