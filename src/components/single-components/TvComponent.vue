@@ -1,27 +1,31 @@
 <template>
-    <article>
-        <ul>
-            <li>
-                <strong>Title: </strong>
-                {{ name }}
-            </li>
-            <li>
-                <strong>Original Title: </strong>
-                {{ originalName }}
-            </li>
-            <li>
-                <strong>Language: </strong>
-                <AppLanguages :languageCode="language" />
-            </li>
-            <li>
-                <strong>Rating: </strong>
-                <RatingComponent :rating="rating"/>
-            </li>
-            <li>
-                <img :src="posterSrc" alt="">
-            </li>
-        </ul>
+    <article class="poster-card">
+        <div class="poster-img">
+            <img :src="posterSrc" alt="">
+        </div>
+
+        <div class="overlay-info-card">
+            <ul>
+                <li>
+                    <strong>Title: </strong>
+                    {{ name }}
+                </li>
+                <li>
+                    <strong>Original Title: </strong>
+                    {{ originalName }}
+                </li>
+                <li>
+                    <strong>Language: </strong>
+                    <AppLanguages :languageCode="language" />
+                </li>
+                <li>
+                    <strong>Rating: </strong>
+                    <RatingComponent :rating="rating"/>
+                </li>
+            </ul>
+        </div>
     </article>
+
 </template>
 
 <script>
@@ -50,5 +54,29 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    
+@use '../../styles/partials/_mixins.scss' as *;
+@use '../../styles/partials/_variables.scss' as *;
+
+    .poster-card {
+        width: calc((100% / 5) - 2rem);
+        margin-left: 2rem;
+        position: relative;
+        margin-bottom: 2rem;
+
+        .poster-img {
+            width: 100%;
+            aspect-ratio: 2/3;
+
+            & img {
+                object-fit: cover;
+                object-position: top;
+            }
+        }
+
+        .overlay-info-card {
+            position: absolute;
+            top: 0;
+        }
+    }
+
 </style>
