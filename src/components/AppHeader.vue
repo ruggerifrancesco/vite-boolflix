@@ -45,6 +45,9 @@
         </nav>
 
         <section class="hero">
+            <img src="https://images.freecreatives.com/wp-content/uploads/2015/09/avengers-wallpapers-.jpg" alt="">
+            <div class="overlay-hero-shadow"></div>
+
             <!-- TO DO CONTENT -->
         </section>
 
@@ -87,6 +90,7 @@ export default {
         right: 0;
         // TO RECHECK LATER
         transition: background-color 0.3s ease-in;
+        z-index: 2;
     }
 
     .overlay-nav-shadow {
@@ -124,10 +128,23 @@ export default {
     }
 
     .hero {
-        height: 850px;
-        background-image: url('https://i.ytimg.com/vi_webp/JFf8I_8Ubv4/maxresdefault.webp');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: top;
+        position: relative;
+        z-index: 1;
+        height: 90vh;
+
+        & > img {
+            object-fit: cover;
+            object-position: top;
+        }
+    }
+
+    .overlay-hero-shadow {
+        background: rgb(20,20,20);
+        background: linear-gradient(0deg, rgba(20,20,20,1) 0%, rgba(0,212,255,0) 35%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
     }
 </style>
