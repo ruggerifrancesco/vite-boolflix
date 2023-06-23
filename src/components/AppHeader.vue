@@ -1,6 +1,6 @@
 <template>
     <header>
-        <nav class="navbar navbar-expand-lg p-3 overlay-nav-shadow">
+        <nav class="navbar navbar-expand-lg p-3" :class="{ 'overlay-nav-shadow': isScrollTop }">
             <div class="container-fluid">
                 <div class="logo-brand">
                     <img src="../assets/boolflix-logo.png" alt="BoolFlix Logo">
@@ -45,9 +45,7 @@
         </nav>
 
         <section class="hero">
-
-
-
+            <!-- TO DO CONTENT -->
         </section>
 
     </header>
@@ -59,9 +57,19 @@ export default {
     data() {
         return {
             searchQuery: '',
+            isScrollTop: true,
         };
     },
     methods: {
+        handleScroll() {
+          this.isScrollTop = window.scrollY === 0; // Check if scroll position is at the top
+        },
+    },
+    mounted() {
+        window.addEventListener('scroll', this.handleScroll); // Add scroll event listener
+    },
+    destroyed() {
+        window.removeEventListener('scroll', this.handleScroll); // Remove scroll event listener on component destroy
     },
 };
 </script>
@@ -72,16 +80,19 @@ export default {
 @use '../styles/partials/_variables.scss' as *;
 
     nav {
-        background-color: transparent;
+        background-color: $main-app-bg;
         position: fixed;
         top: 0;
         left: 0;
         right: 0;
+        // TO RECHECK LATER
+        transition: background-color 0.3s ease-in;
     }
 
     .overlay-nav-shadow {
         background: rgb(0,0,0);
-        background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,212,255,0) 100%);
+        background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,212,255,0) 90%);
+        transition: background-color 0.3s ease;
     }
 
     img {
