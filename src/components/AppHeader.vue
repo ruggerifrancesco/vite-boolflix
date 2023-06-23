@@ -45,12 +45,12 @@
                             Search
                         </button>
                     </div>
-                    
+
                 </div>
             </div>
         </nav>
 
-        <section class="hero">
+        <section class="hero" v-if="!searchQuery">
             <img src="https://images.freecreatives.com/wp-content/uploads/2015/09/avengers-wallpapers-.jpg" alt="">
             <div class="overlay-hero-shadow"></div>
 
