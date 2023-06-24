@@ -190,9 +190,18 @@ export default {
             padding: 0.375rem 5.5rem 0.375rem 0.75rem;;
         }
 
-        button i {
+        button {
             color: $main-app-bg;
+
+            &:active {
+                border: 1px solid transparent;
+            }
+            &:hover {
+                color: rgb(253, 117, 13);
+            }
         }
+        
+
 
     }
 </style>
