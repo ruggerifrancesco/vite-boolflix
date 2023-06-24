@@ -38,7 +38,7 @@
 
                     <div class="d-flex input-search-container">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" 
-                            v-model="searchQuery">
+                            v-model="searchQuery" @keyup.enter="handleSearch">
 
                         <div class="button-actions-container">
                             <button class="btn search-role" type="submit" 
