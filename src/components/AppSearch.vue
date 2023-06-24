@@ -2,9 +2,9 @@
     <section>
 
         <div class="container-fluid">
-            <h1>Movies</h1>
+            <h1 class="text-center">Movies</h1>
 
-            <div class="container-movie-wrapper">
+            <div class="container-wrapper">
                 <MovieComponent v-for="movie in movieArray"
                     :title="movie.title"
                     :originalTitle="movie.original_title"
@@ -14,8 +14,8 @@
                 />
             </div>
 
-            <h1>Tv Series</h1>
-            <div class="container-movie-wrapper">
+            <h1 class="text-center">Tv Series</h1>
+            <div class="container-wrapper">
                 <TvComponent v-for="serie in tvArray"
                     :name="serie.name"
                     :originalName="serie.original_name"
@@ -65,15 +65,20 @@ export default {
 @use '../styles/partials/_variables.scss' as *;
 
     section {
-        margin-top: 4rem;
+        margin-top: 6rem;
+        margin-bottom: 2rem;
         color: white;
     }
 
-    .container-movie-wrapper,
-    .container-tv-wrapper {
+    h1 {
+        margin-bottom: 2rem
+    }
+
+    .container-wrapper {
         @include flex (row, flex-start, flex-start);
         flex-wrap: wrap;
         padding-right: 2rem;
+        margin-bottom: 2rem;
     }
 
 </style>
