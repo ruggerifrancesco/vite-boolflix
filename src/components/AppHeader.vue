@@ -36,18 +36,20 @@
                     
                     </ul>
 
-                    <div class="d-flex">
+                    <div class="d-flex input-search-container">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" 
                             v-model="searchQuery">
 
-                        <button class="btn btn-success" type="submit" 
-                            @click="handleSearch">
-                            Search
-                        </button>
+                        <div class="button-actions-container">
+                            <button class="btn search-role" type="submit" 
+                                @click="handleSearch">
+                                <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
+                            </button>
 
-                        <button class="btn btn-danger" type="button" @click="handleClear">
-                          Clear
-                        </button>
+                            <button class="btn clear-role" type="button" @click="handleClear">
+                                <font-awesome-icon :icon="['fas', 'dumpster']" />
+                            </button>
+                        </div>
                     </div>
 
                 </div>
@@ -173,5 +175,24 @@ export default {
         left: 0;
         right: 0;
         bottom: 0;
+    }
+
+    .input-search-container {
+        position: relative;
+        width: 25%;
+        
+        .button-actions-container {
+            position: absolute;
+            right: 10px;
+        }
+
+        input {
+            padding: 0.375rem 5.5rem 0.375rem 0.75rem;;
+        }
+
+        button i {
+            color: $main-app-bg;
+        }
+
     }
 </style>
