@@ -65,6 +65,12 @@ export default {
         border-radius: 1rem;
         overflow: hidden;
 
+        &:hover {
+            transform: scale(1.1);
+            transition: scale ease-in-out 10s;
+            cursor: pointer;
+        }
+
         .poster-img {
             width: 100%;
             aspect-ratio: 2/3;
