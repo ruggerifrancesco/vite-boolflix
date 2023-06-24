@@ -102,7 +102,7 @@ export default {
         }
 
         .language-container {
-            bottom: 3rem;
+            bottom: 3.5rem;
         }
         .rating-container {
             bottom: 1rem;

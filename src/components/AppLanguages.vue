@@ -30,7 +30,7 @@ export default {
     methods: {
         getFlagImage(languageCode) {
             const language = this.languages.find((lang) => lang.code === languageCode);
-            return language ? language.flag : '';
+            return language ? language.flag : 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Missing_flag.png';
         },
     }
 }
@@ -39,6 +39,8 @@ export default {
 <style lang="scss" scoped>
     img {
         width: 3rem;
-        border: 1px solid black;
+        aspect-ratio: 3/1.8;
+        border-radius: 0.2rem;
+        object-fit: cover;
     }
 </style>
